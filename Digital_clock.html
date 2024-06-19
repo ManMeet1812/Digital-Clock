@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital_Clock</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            background: #20232a;
+        }
+
+        .clockHolder{
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .timeHolder{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeoptions{
+            margin-bottom: 20px;
+        }
+
+        .timeoptions i{
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .mainDiv{
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .timeoptions i:hover {
+            color: #61dafb;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "clockHolder">
+            <div class = "timeHolder">
+                <div class = "timeoptions">
+                    <i class ="fas fa-clock" data-title="Time"></i>
+                    <i class ="fas fa-stopwatch" data-title="StopWatch"></i>
+                    <i class="far fa-clock" data-title="CountDown"></i>
+                </div>
+                <div class="mainDiv">
+                    <p id="clock"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const currentTime = () =>{
+            let curTime = new Date().toLocaleTimeString();
+            document.getElementById('clock').innerText = curTime;
+            
+        }
+        currentTime();
+
+        const intervalId = setInterval(() =>{
+            currentTime();
+        }, 1000);
+
+        // If you want to stop it after 5 seconds
+        // setTimeout(() => {
+        //     clearInterval(intervalId);
+        //     console.log("Interval cleared");  // Confirm in console that the interval is supposed to stop
+        // }, 5000);
+
+    </script>
+</body>
+</html>
